@@ -13,3 +13,14 @@ export const getPost = async (id) => {
   );
   return res.data;
 };
+
+export const createPost = async (data) => {
+  const res = await axios.post("https://jsonplaceholder.typicode.com/posts");
+  return res.data;
+};
+
+export function getPostsPaginated(page) {
+  return axios
+    .get(`https://jsonplaceholder.typicode.com/posts?_start=${page}&_limit=10`)
+    .then((res) => res.data);
+}
